@@ -1,0 +1,31 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Radius & Shadow" subtitle="Modest architectural radii; soft warm-tinted elevation" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--surface-page); color: var(--text-strong); padding:24px; display:flex; gap:36px; align-items:center; }
+  .group { display:flex; gap:16px; align-items:center; }
+  .box { width:60px; height:60px; background:var(--surface-card); border:1px solid var(--border-subtle); display:flex; align-items:flex-end; justify-content:center; }
+  .tok { font-family:var(--font-mono); font-size:10px; color:var(--text-muted); padding-bottom:4px; }
+  .sep { width:1px; height:64px; background:var(--border-subtle); }
+  .sh { width:64px; height:60px; background:var(--surface-card); border-radius:var(--radius-md); }
+</style>
+</head>
+<body>
+  <div class="group">
+    <div class="box" style="border-radius:var(--radius-xs)"><span class="tok">xs·4</span></div>
+    <div class="box" style="border-radius:var(--radius-md)"><span class="tok">md·10</span></div>
+    <div class="box" style="border-radius:var(--radius-lg)"><span class="tok">lg·16</span></div>
+    <div class="box" style="border-radius:var(--radius-pill); width:60px"><span class="tok">pill</span></div>
+  </div>
+  <div class="sep"></div>
+  <div class="group">
+    <div class="sh" style="box-shadow:var(--shadow-sm)"></div>
+    <div class="sh" style="box-shadow:var(--shadow-md)"></div>
+    <div class="sh" style="box-shadow:var(--shadow-lg)"></div>
+    <div class="sh" style="box-shadow:var(--shadow-brand)"></div>
+  </div>
+</body>
+</html>

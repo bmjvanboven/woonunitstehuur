@@ -1,0 +1,9 @@
+/* ============================================================
+   Woonunitstehuur — Webfonts
+   SUBSTITUTION NOTE: the live site's exact typefaces were not
+   available, so the system uses close Google Fonts matches:
+   · Archivo  — heavy, architectural grotesque for the wordmark feel
+   · Hanken Grotesk — humanist body/UI face
+   Replace with licensed brand fonts when available.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');

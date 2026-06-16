@@ -1,0 +1,81 @@
+/* ============================================================
+   Woonunitstehuur — Color tokens
+   Brand: warm gold (#BC955B) + near-black ink, on warm neutrals.
+   ============================================================ */
+:root {
+  /* --- Brand gold (primary accent) ------------------------- */
+  --gold-50:  #faf6ee;
+  --gold-100: #f3ead6;
+  --gold-200: #e6d4ae;
+  --gold-300: #d6bb82;
+  --gold-400: #c9a76a;
+  --gold-500: #bc955b;  /* brand base — sampled from logo */
+  --gold-600: #a87e45;  /* hover */
+  --gold-700: #8a6536;  /* press / text-on-light */
+  --gold-800: #6b4e2c;
+  --gold-900: #4a3720;
+
+  /* --- Ink (near-black) ------------------------------------ */
+  --ink-900: #141413;   /* deepest */
+  --ink-800: #1b1b1b;   /* brand black — wordmark */
+  --ink-700: #2a2926;
+  --ink-600: #3b3a35;
+
+  /* --- Warm neutrals --------------------------------------- */
+  --white:    #ffffff;
+  --sand-50:  #faf8f4;  /* warm off-white surface */
+  --sand-100: #f4f0e9;
+  --sand-200: #e9e3d8;  /* hairline / subtle border */
+  --sand-300: #d8d0c1;
+  --sand-400: #b9b0a0;
+  --sand-500: #938b7c;
+  --sand-600: #6c6557;
+  --sand-700: #4c4639;
+  --sand-800: #322e26;
+
+  /* --- Semantic / status ----------------------------------- */
+  --success-500: #4f7a4a;
+  --success-100: #e4eddf;
+  --info-500:    #3a6b8c;
+  --info-100:    #e0ebf2;
+  --warning-500: #b4842b;
+  --warning-100: #f6ecd5;
+  --danger-500:  #a8443a;
+  --danger-100:  #f3e0dd;
+
+  /* ============================================================
+     Semantic aliases — reference these in components
+     ============================================================ */
+  --color-brand:          var(--gold-500);
+  --color-brand-hover:     var(--gold-600);
+  --color-brand-press:     var(--gold-700);
+  --color-brand-ink:       var(--ink-800);
+
+  /* Text */
+  --text-strong:   var(--ink-800);
+  --text-body:     var(--ink-700);
+  --text-muted:    var(--sand-600);
+  --text-subtle:   var(--sand-500);
+  --text-on-brand: var(--ink-900);
+  --text-on-dark:  var(--white);
+  --text-link:     var(--gold-700);
+
+  /* Surfaces */
+  --surface-page:    var(--sand-50);
+  --surface-card:    var(--white);
+  --surface-raised:  var(--white);
+  --surface-sunken:  var(--sand-100);
+  --surface-inverse: var(--ink-800);
+  --surface-brand:   var(--gold-500);
+  --surface-brand-soft: var(--gold-100);
+
+  /* Borders */
+  --border-subtle:  var(--sand-200);
+  --border-default: var(--sand-300);
+  --border-strong:  var(--sand-400);
+  --border-inverse: var(--ink-600);
+  --border-brand:   var(--gold-500);
+
+  /* Focus */
+  --focus-ring: var(--gold-500);
+}

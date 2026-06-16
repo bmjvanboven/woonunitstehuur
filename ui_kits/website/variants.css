@@ -1,0 +1,124 @@
+/* ============================================================
+   Woonunitstehuur — Animation levels
+   The BASE design stays exactly as-is. The switcher only layers
+   motion on top, selected by the attribute on <html>:
+       data-wu-variant = base | subtle | elegant | lively
+
+   Nothing here changes colour, type, radius or layout — only
+   transitions, reveals and ambient motion. All motion sits inside
+   `prefers-reduced-motion: no-preference` so it fully disables for
+   users who ask for less movement.
+   ============================================================ */
+
+/* ----------------------------------------------------------------
+   Floating switcher control (fixed brand colours, never animates)
+   ---------------------------------------------------------------- */
+.wu-switch { position: fixed; right: 20px; bottom: 20px; z-index: 1000; font-family: 'Hanken Grotesk', system-ui, sans-serif; }
+.wu-switch__panel {
+  position: absolute; right: 0; bottom: 64px; width: 320px; max-width: calc(100vw - 40px);
+  background: #fff; border: 1px solid #e9e3d8; border-radius: 16px;
+  box-shadow: 0 24px 56px rgba(27,27,27,.20), 0 8px 16px rgba(27,27,27,.10);
+  padding: 14px; transform-origin: bottom right; animation: wuPop .26s cubic-bezier(.22,1,.36,1);
+}
+@keyframes wuPop { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+.wu-switch__title { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8a6536; margin: 4px 6px 12px; display: flex; align-items: center; gap: 8px; }
+.wu-switch__title::before { content: ""; width: 18px; height: 2px; background: #bc955b; display: inline-block; }
+.wu-switch__opt { display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left; border: 1px solid transparent; background: transparent; cursor: pointer; padding: 11px 12px; border-radius: 12px; transition: background .14s, border-color .14s; }
+.wu-switch__opt:hover { background: #faf6ee; }
+.wu-switch__opt[aria-pressed="true"] { background: #faf6ee; border-color: #e6d4ae; }
+.wu-switch__swatch { flex: none; width: 38px; height: 38px; border-radius: 9px; position: relative; overflow: hidden; border: 1px solid rgba(27,27,27,.10); background: #faf8f4; }
+/* swatches — all warm/base palette, each hints at its motion */
+.wu-sw-base::after    { content:""; position:absolute; inset:auto 7px 8px 7px; height:7px; border-radius:99px; background:#bc955b; }
+.wu-sw-subtle::after  { content:""; position:absolute; inset:auto 7px 8px 7px; height:7px; border-radius:99px; background:linear-gradient(90deg, transparent, #bc955b); }
+.wu-sw-elegant { background: radial-gradient(circle at 50% 38%, #f3ead6, #faf8f4 70%); }
+.wu-sw-elegant::after { content:""; position:absolute; inset:auto 7px 8px 7px; height:7px; border-radius:99px; background:#bc955b; }
+.wu-sw-lively { background: linear-gradient(135deg,#c9a76a,#bc955b 45%,#8a6536); }
+.wu-sw-lively::after { content:""; position:absolute; inset:0; background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,.6) 50%, transparent 60%); animation: wuSheen 2.4s ease-in-out infinite; }
+.wu-switch__meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.wu-switch__name { font-size: 14.5px; font-weight: 700; color: #1b1b1b; display: flex; align-items: center; gap: 8px; }
+.wu-switch__tag  { font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #8a6536; background: #faf6ee; border: 1px solid #f3ead6; padding: 1px 7px; border-radius: 99px; }
+.wu-switch__desc { font-size: 12.5px; line-height: 1.45; color: #6c6557; }
+.wu-switch__fab { display: flex; align-items: center; gap: 10px; margin-left: auto; height: 52px; padding: 0 20px 0 18px; border: none; cursor: pointer; background: #1b1b1b; color: #fff; border-radius: 999px; box-shadow: 0 12px 28px rgba(27,27,27,.28); font-weight: 700; font-size: 14px; transition: transform .14s var(--ease-out), box-shadow .14s; }
+.wu-switch__fab:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(27,27,27,.34); }
+.wu-switch__fab .wu-dot { width: 12px; height: 12px; border-radius: 50%; background: #bc955b; box-shadow: 0 0 0 4px rgba(188,149,91,.25); }
+@media (max-width: 560px) { .wu-switch__fab span.wu-fab-label { display: none; } .wu-switch__fab { padding: 0; width: 52px; justify-content: center; } }
+
+/* ================================================================
+   MOTION LEVELS — applied on the unchanged base design
+   ================================================================ */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---- Scroll reveal (all three levels) ------------------------ */
+  html[data-wu-variant="subtle"]  #screen > div > section,
+  html[data-wu-variant="elegant"] #screen > div > section,
+  html[data-wu-variant="lively"]  #screen > div > section {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+    will-change: opacity, transform;
+  }
+  html[data-wu-variant="subtle"]  #screen > div > section.wu-in,
+  html[data-wu-variant="elegant"] #screen > div > section.wu-in,
+  html[data-wu-variant="lively"]  #screen > div > section.wu-in { opacity: 1; transform: none; }
+
+  /* elegant + lively: a touch more travel + gentle stagger */
+  html[data-wu-variant="elegant"] #screen > div > section,
+  html[data-wu-variant="lively"]  #screen > div > section { transform: translateY(26px); }
+  html[data-wu-variant="lively"]  #screen > div > section { transform: translateY(26px) scale(.99); }
+  html[data-wu-variant="elegant"] #screen > div > section:nth-child(2),
+  html[data-wu-variant="lively"]  #screen > div > section:nth-child(2) { transition-delay: .07s; }
+  html[data-wu-variant="elegant"] #screen > div > section:nth-child(3),
+  html[data-wu-variant="lively"]  #screen > div > section:nth-child(3) { transition-delay: .14s; }
+  html[data-wu-variant="elegant"] #screen > div > section:nth-child(4),
+  html[data-wu-variant="lively"]  #screen > div > section:nth-child(4) { transition-delay: .21s; }
+
+  /* ---- Button hover (all three) ------------------------------- */
+  html[data-wu-variant="subtle"]  :is(header, #screen, footer) button,
+  html[data-wu-variant="elegant"] :is(header, #screen, footer) button,
+  html[data-wu-variant="lively"]  :is(header, #screen, footer) button { transition: transform .16s var(--ease-out), box-shadow .16s var(--ease-out); }
+  html[data-wu-variant="subtle"]  :is(header, #screen, footer) button:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  html[data-wu-variant="elegant"] :is(header, #screen, footer) button:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  html[data-wu-variant="lively"]  :is(header, #screen, footer) button:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 26px rgba(188,149,91,.34); }
+  /* arrow / icon nudge on hover */
+  html[data-wu-variant="subtle"]  :is(header, #screen, footer) button svg,
+  html[data-wu-variant="elegant"] :is(header, #screen, footer) button svg,
+  html[data-wu-variant="lively"]  :is(header, #screen, footer) button svg { transition: transform .18s var(--ease-out); }
+  html[data-wu-variant="subtle"]  :is(header, #screen, footer) button:hover svg,
+  html[data-wu-variant="elegant"] :is(header, #screen, footer) button:hover svg,
+  html[data-wu-variant="lively"]  :is(header, #screen, footer) button:hover svg { transform: translateX(3px); }
+
+  /* ---- Nav underline grow (all three) ------------------------- */
+  html[data-wu-variant="subtle"]  header nav a,
+  html[data-wu-variant="elegant"] header nav a,
+  html[data-wu-variant="lively"]  header nav a { position: relative; }
+  html[data-wu-variant="subtle"]  header nav a::after,
+  html[data-wu-variant="elegant"] header nav a::after,
+  html[data-wu-variant="lively"]  header nav a::after {
+    content: ""; position: absolute; left: 14px; right: 14px; bottom: 5px; height: 2px;
+    background: var(--gold-500); border-radius: 2px; transform: scaleX(0); transform-origin: left;
+    transition: transform .24s var(--ease-out);
+  }
+  html[data-wu-variant="subtle"]  header nav a:hover::after,
+  html[data-wu-variant="elegant"] header nav a:hover::after,
+  html[data-wu-variant="lively"]  header nav a:hover::after { transform: scaleX(1); }
+
+  /* ---- Elegant + lively: hero photo Ken Burns ----------------- */
+  html[data-wu-variant="elegant"] #screen > div > section:first-child img,
+  html[data-wu-variant="lively"]  #screen > div > section:first-child img { animation: wuKen 24s ease-in-out infinite alternate; }
+  /* ---- Elegant + lively: hero brand-wash slow drift ----------- */
+  html[data-wu-variant="elegant"] #screen [style*="radial-gradient"],
+  html[data-wu-variant="lively"]  #screen [style*="radial-gradient"] { animation: wuDrift 18s ease-in-out infinite alternate; }
+
+  /* ---- Lively only: shimmer over the gold CTA band ------------ */
+  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"] { position: relative; overflow: hidden; }
+  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"] > div { position: relative; z-index: 1; }
+  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"]::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: -30%; width: 24%; z-index: 0; pointer-events: none;
+    background: linear-gradient(110deg, transparent, rgba(255,255,255,.40), transparent); transform: skewX(-18deg);
+    animation: wuBandSheen 6s ease-in-out 1.2s infinite;
+  }
+}
+
+@keyframes wuKen { from { transform: scale(1); } to { transform: scale(1.07); } }
+@keyframes wuDrift { from { transform: translate(0,0) scale(1); } to { transform: translate(-26px, 18px) scale(1.12); } }
+@keyframes wuSheen { 0% { transform: translateX(-120%); } 60%, 100% { transform: translateX(120%); } }
+@keyframes wuBandSheen { 0% { left: -30%; } 55%, 100% { left: 130%; } }

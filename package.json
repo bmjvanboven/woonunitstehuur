@@ -1,0 +1,36 @@
+{
+  "name": "woonunitstehuur",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "devsafe": "rm -rf .next && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap",
+    "payload": "payload"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "^3",
+    "@payloadcms/next": "^3",
+    "@payloadcms/richtext-lexical": "^3",
+    "@payloadcms/ui": "^3",
+    "graphql": "^16.8.1",
+    "next": "^15",
+    "payload": "^3",
+    "react": "^19",
+    "react-dom": "^19",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

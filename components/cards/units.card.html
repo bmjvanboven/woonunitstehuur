@@ -1,0 +1,41 @@
+<!-- @dsCard group="Components" viewport="700x500" name="Unit Card" subtitle="Listing card composing Badge + SpecItem with hover lift" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--surface-page); color: var(--text-strong); padding:28px; }
+  .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; max-width:660px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const { UnitCard } = window.WoonunitstehuurDesignSystem_c98620;
+  const I = (p) => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{p}</svg>;
+  const Ruler = I(<><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></>);
+  const Bed = I(<><path d="M3 18v-6h18v6M3 12V7a1 1 0 0 1 1-1h6v6M21 12V9a2 2 0 0 0-2-2h-7"/></>);
+  const Users = I(<><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 6a3 3 0 0 1 0 6"/></>);
+  function Demo() {
+    return (
+      <div className="grid">
+        <UnitCard image="../../assets/unit-comfort.jpg" title="Comfort Unit 30" subtitle="Voor 1–2 personen"
+          badge={{tone:'success', label:'Direct beschikbaar'}}
+          specs={[{icon:Ruler,label:'ca. 30 m²'},{icon:Bed,value:'1',label:'slaapk.'},{icon:Users,value:'2',label:'pers.'}]}
+          price="€ 595" pricePeriod="p/mnd" />
+        <UnitCard image="../../assets/unit-familie.jpg" title="Familie Unit XL" subtitle="Ruimte voor het hele gezin"
+          badge={{tone:'gold', label:'Populair'}}
+          specs={[{icon:Ruler,label:'ca. 55 m²'},{icon:Bed,value:'3',label:'slaapk.'},{icon:Users,value:'5',label:'pers.'}]}
+          price="€ 895" pricePeriod="p/mnd" />
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Status Colors" subtitle="Muted, earthy semantic colors that sit beside the gold" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--surface-card); color: var(--text-strong); }
+  .row { display:flex; gap:14px; padding:20px; }
+  .sw { flex:1; }
+  .chip { height:48px; border-radius: var(--radius-sm); display:flex; align-items:center; padding:0 12px; color:#fff; font-weight:600; font-size:13px; }
+  .pair { display:flex; gap:6px; margin-top:8px; align-items:center; }
+  .soft { width:22px; height:22px; border-radius:5px; border:1px solid rgba(0,0,0,0.06); }
+  .name { font-size:11px; color: var(--text-muted); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--success-500)">Beschikbaar</div><div class="pair"><span class="soft" style="background:var(--success-100)"></span><span class="name">success</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--info-500)">Info</div><div class="pair"><span class="soft" style="background:var(--info-100)"></span><span class="name">info</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--warning-500)">Gepland</div><div class="pair"><span class="soft" style="background:var(--warning-100)"></span><span class="name">warning</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--danger-500)">Verhuurd</div><div class="pair"><span class="soft" style="background:var(--danger-100)"></span><span class="name">danger</span></div></div>
+  </div>
+</body>
+</html>

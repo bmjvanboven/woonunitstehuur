@@ -1,0 +1,27 @@
+<!-- @dsCard group="Type" viewport="700x130" name="Eyebrow & Label" subtitle="Uppercase overline with gold accent; UI label style" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--surface-card); color: var(--text-strong); padding:24px; display:flex; gap:56px; align-items:center; }
+  .eyebrow { font-weight:700; font-size:13px; letter-spacing:var(--tracking-caps); text-transform:uppercase; color:var(--gold-700); display:flex; align-items:center; gap:10px; }
+  .eyebrow::before { content:""; width:24px; height:2px; background:var(--gold-500); }
+  .label { font-weight:600; font-size:14px; color:var(--text-strong); }
+  .help { font-size:13px; color:var(--text-muted); margin-top:4px; }
+  .meta { font-family:var(--font-mono); font-size:11px; color:var(--text-subtle); margin-top:6px; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="eyebrow">Tijdelijk wonen</div>
+    <div class="meta">eyebrow · 13 / 700 / +12% caps</div>
+  </div>
+  <div>
+    <div class="label">Gewenste plaatsingsdatum</div>
+    <div class="help">Wij plaatsen meestal binnen 1–2 werkdagen.</div>
+    <div class="meta">label 14/600 · help 13/400</div>
+  </div>
+</body>
+</html>

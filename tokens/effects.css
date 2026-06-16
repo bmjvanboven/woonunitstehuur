@@ -1,0 +1,35 @@
+/* ============================================================
+   Woonunitstehuur — Effects: radius, shadow, borders, motion
+   Architectural/solid brand → modest radii, soft warm shadows.
+   ============================================================ */
+:root {
+  /* Corner radius */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;
+
+  /* Border widths */
+  --border-hair: 1px;
+  --border-thick: 2px;
+
+  /* Shadows — warm-tinted, soft. Built on ink with low alpha. */
+  --shadow-xs: 0 1px 2px rgba(27,27,27,0.06);
+  --shadow-sm: 0 1px 3px rgba(27,27,27,0.08), 0 1px 2px rgba(27,27,27,0.04);
+  --shadow-md: 0 4px 12px rgba(27,27,27,0.08), 0 2px 4px rgba(27,27,27,0.05);
+  --shadow-lg: 0 12px 28px rgba(27,27,27,0.12), 0 4px 8px rgba(27,27,27,0.06);
+  --shadow-xl: 0 24px 56px rgba(27,27,27,0.16), 0 8px 16px rgba(27,27,27,0.08);
+  --shadow-brand: 0 10px 24px rgba(188,149,91,0.30);
+
+  /* Focus ring */
+  --ring-focus: 0 0 0 3px rgba(188,149,91,0.40);
+
+  /* Motion */
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);   /* @kind other */
+  --ease-in-out:cubic-bezier(0.65, 0, 0.35, 1);   /* @kind other */
+  --dur-fast:   140ms;   /* @kind other */
+  --dur-base:   220ms;   /* @kind other */
+  --dur-slow:   360ms;   /* @kind other */
+}

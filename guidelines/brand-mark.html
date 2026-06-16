@@ -1,0 +1,22 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Brand Mark" subtitle="Gold triple-chevron — favicon, app icon, accent device" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--surface-card); display:flex; align-items:center; justify-content:center; gap:48px; height:200px; }
+  .tile { display:flex; flex-direction:column; align-items:center; gap:12px; }
+  .on-light { background:var(--sand-50); border:1px solid var(--border-subtle); }
+  .on-dark { background:var(--ink-800); }
+  .pad { width:120px; height:120px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; }
+  .pad img { width:74px; height:auto; }
+  .cap { font-size:11px; color:var(--text-muted); font-family:var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="tile"><div class="pad on-light"><img src="../assets/mark-gold.png" alt="mark"></div><div class="cap">on sand</div></div>
+  <div class="tile"><div class="pad on-dark"><img src="../assets/mark-gold.png" alt="mark"></div><div class="cap">on ink</div></div>
+  <div class="tile"><div class="pad on-light" style="border-radius:var(--radius-pill)"><img src="../assets/favicon.png" alt="favicon" style="width:64px"></div><div class="cap">favicon</div></div>
+</body>
+</html>

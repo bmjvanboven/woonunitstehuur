@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Brand Gold" subtitle="Primary accent — sampled from the logo mark" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--surface-card); color: var(--text-strong); }
+  .row { display:flex; gap:0; padding:20px; }
+  .sw { flex:1; display:flex; flex-direction:column; gap:8px; }
+  .chip { height:64px; border-radius: var(--radius-sm); border:1px solid rgba(0,0,0,0.06); }
+  .name { font-size:12px; font-weight:600; }
+  .hex { font-size:11px; color: var(--text-muted); font-family: var(--font-mono); }
+  .star { position:absolute; margin:4px 0 0 6px; color: var(--ink-900); font-size:13px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--gold-100)"></div><div class="name">100</div><div class="hex">#f3ead6</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-300)"></div><div class="name">300</div><div class="hex">#d6bb82</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-500); box-shadow:var(--shadow-sm)"></div><div class="name">500 · base ★</div><div class="hex">#bc955b</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-600)"></div><div class="name">600 · hover</div><div class="hex">#a87e45</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-700)"></div><div class="name">700 · press</div><div class="hex">#8a6536</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-900)"></div><div class="name">900</div><div class="hex">#4a3720</div></div>
+  </div>
+</body>
+</html>

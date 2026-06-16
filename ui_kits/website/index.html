@@ -1,0 +1,81 @@
+<!-- @dsCard group="Website" viewport="1280x760" name="Woonunitstehuur Website" subtitle="Interactive marketing site — home, aanbod, unit detail & contact" -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Woonunitstehuur.nl — Comfortabel tijdelijk wonen</title>
+<link rel="icon" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="variants.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font-family: var(--font-body); background: var(--surface-card); color: var(--text-body); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  #app { min-height: 100vh; display: flex; flex-direction: column; }
+  #screen { flex: 1; }
+  img { max-width: 100%; }
+
+  /* ---- Responsive: stack the block grids ---- */
+  /* Tablet: 4-up and 3-up grids become 2-up */
+  @media (max-width: 900px) {
+    [style*="repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  /* Phone: everything stacks to a single column */
+  @media (max-width: 680px) {
+    [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    /* tighten section padding */
+    section > div[style*="var(--container-max)"],
+    div[style*="var(--container-max)"] { padding-left: 20px !important; padding-right: 20px !important; }
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="icons.jsx"></script>
+<script type="text/babel" src="responsive.js"></script>
+<script type="text/babel" src="data.js"></script>
+<script type="text/babel" src="variants.js"></script>
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="HomeScreen.jsx"></script>
+<script type="text/babel" src="AanbodScreen.jsx"></script>
+<script type="text/babel" src="UnitDetailScreen.jsx"></script>
+<script type="text/babel" src="ContactScreen.jsx"></script>
+<script type="text/babel">
+  function App() {
+    const [screen, setScreen] = React.useState('home');
+    const onNav = (s) => {
+      setScreen(s);
+      const el = document.getElementById('screen');
+      if (el) el.scrollTop = 0;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    const map = {
+      home: window.WUHome,
+      aanbod: window.WUAanbod,
+      werkwijze: window.WUHome,
+      unit: window.WUUnit,
+      contact: window.WUContact,
+    };
+    const Screen = map[screen] || window.WUHome;
+    return (
+      <React.Fragment>
+        <window.WUHeader onNav={onNav} current={screen} />
+        <div id="screen"><Screen onNav={onNav} /></div>
+        <window.WUFooter onNav={onNav} />
+        <window.WUVariantSwitcher />
+      </React.Fragment>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+</script>
+</body>
+</html>

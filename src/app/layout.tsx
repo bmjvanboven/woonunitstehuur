@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 // Zet de gekozen ontwerpvariant op <html> vóór paint (voorkomt flikkering).
 const variantInit =
-  "(function(){try{var K='wu-variant',DV='wu-variant-default',VER='2026-06-elegant',DEF='elegant',OK=['base','subtle','elegant','lively'],v;if(localStorage.getItem(DV)!==VER){localStorage.setItem(DV,VER);localStorage.setItem(K,DEF);v=DEF;}else{v=localStorage.getItem(K);if(OK.indexOf(v)<0)v=DEF;}document.documentElement.setAttribute('data-wu-variant',v);}catch(e){document.documentElement.setAttribute('data-wu-variant','elegant');}})();";
+  "(function(){try{var K='wu-variant',DV='wu-variant-default',VER='2026-06-lively',DEF='lively',OK=['base','subtle','elegant','lively'],v;if(localStorage.getItem(DV)!==VER){localStorage.setItem(DV,VER);localStorage.setItem(K,DEF);v=DEF;}else{v=localStorage.getItem(K);if(OK.indexOf(v)<0)v=DEF;}document.documentElement.setAttribute('data-wu-variant',v);}catch(e){document.documentElement.setAttribute('data-wu-variant','lively');}})();";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -15,8 +15,8 @@ const VARIANTS = [
 
 const KEYS = VARIANTS.map((v) => v.key) as readonly string[];
 const STORE_KEY = 'wu-variant';
-const DEFAULT_VARIANT = 'elegant';
-const DEFAULT_VERSION = '2026-06-elegant';
+const DEFAULT_VARIANT = 'lively';
+const DEFAULT_VERSION = '2026-06-lively';
 const DV_KEY = 'wu-variant-default';
 
 function readVariant(): string {
@@ -89,7 +89,7 @@ export function VariantSwitcher() {
     location.reload();
   };
 
-  const activeName = VARIANTS.find((v) => v.key === active)?.name ?? 'Elegant';
+  const activeName = VARIANTS.find((v) => v.key === active)?.name ?? 'Levendig';
 
   return (
     <div className="wu-switch" ref={ref}>

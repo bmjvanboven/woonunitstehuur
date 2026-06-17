@@ -109,9 +109,13 @@
   html[data-wu-variant="lively"]  #screen [style*="radial-gradient"] { animation: wuDrift 18s ease-in-out infinite alternate; }
 
   /* ---- Lively only: shimmer over the gold CTA band ------------ */
-  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"] { position: relative; overflow: hidden; }
-  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"] > div { position: relative; z-index: 1; }
-  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"]::before {
+  /* Match both the spaced (old prototype HTML) and unspaced (React inline-style) serialisations. */
+  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"],
+  html[data-wu-variant="lively"] #screen section[style*="background:var(--gold-500)"] { position: relative; overflow: hidden; }
+  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"] > div,
+  html[data-wu-variant="lively"] #screen section[style*="background:var(--gold-500)"] > div { position: relative; z-index: 1; }
+  html[data-wu-variant="lively"] #screen section[style*="background: var(--gold-500)"]::before,
+  html[data-wu-variant="lively"] #screen section[style*="background:var(--gold-500)"]::before {
     content: ""; position: absolute; top: 0; bottom: 0; left: -30%; width: 24%; z-index: 0; pointer-events: none;
     background: linear-gradient(110deg, transparent, rgba(255,255,255,.40), transparent); transform: skewX(-18deg);
     animation: wuBandSheen 6s ease-in-out 1.2s infinite;

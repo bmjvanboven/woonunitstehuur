@@ -1,0 +1,33 @@
+/* Global stylesheet voor de Next.js-app.
+   Eerst de design-tokens + animatievarianten, daarna de basisregels
+   (overgenomen uit de oude index.html <style>). */
+@import '../../tokens/fonts.css';
+@import '../../tokens/colors.css';
+@import '../../tokens/typography.css';
+@import '../../tokens/spacing.css';
+@import '../../tokens/effects.css';
+@import '../../ui_kits/website/variants.css';
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: var(--font-body);
+  background: var(--surface-card);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+#app { min-height: 100vh; display: flex; flex-direction: column; }
+#screen { flex: 1; }
+img { max-width: 100%; }
+
+/* ---- Responsive: stack de block-grids (zelfde regels als de oude preview) ---- */
+@media (max-width: 900px) {
+  [style*="repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 680px) {
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  section > div[style*="var(--container-max)"],
+  div[style*="var(--container-max)"] { padding-left: 20px !important; padding-right: 20px !important; }
+}
